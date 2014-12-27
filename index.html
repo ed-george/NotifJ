@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Notifj by ed-george</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Notifj</h1>
+        <p>Create Desktop Notifications from a Java Application</p>
+
+        <p class="view"><a href="https://github.com/ed-george/NotifJ">View the Project on GitHub <small>ed-george/NotifJ</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/ed-george/NotifJ/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/ed-george/NotifJ/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/ed-george/NotifJ">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="notifj" class="anchor" href="#notifj" aria-hidden="true"><span class="octicon octicon-link"></span></a>NotifJ</h1>
+
+<p>A Java library to provide an easy method for creating desktop notifications.</p>
+
+<h2>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h2>
+
+<p><strong>Create a Growl notification in OSX</strong></p>
+
+<pre><code>public void notification(String title, String message) throws NotificationException{
+    OSXGrowlNotification notification = new OSXGrowlNotification("Test App");
+    notification.open();
+    notification.show(title, message);
+}
+</code></pre>
+
+<h2>
+<a id="support" class="anchor" href="#support" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support</h2>
+
+<h4>
+<a id="currently-supported" class="anchor" href="#currently-supported" aria-hidden="true"><span class="octicon octicon-link"></span></a>Currently Supported:</h4>
+
+<ul>
+<li>Growl for Mac OSX
+
+<ul>
+<li>Successfully tested on Growl 2.1.3 and OS X 10.10.1</li>
+</ul>
+</li>
+</ul>
+
+<h4>
+<a id="yet-to-be-supported" class="anchor" href="#yet-to-be-supported" aria-hidden="true"><span class="octicon octicon-link"></span></a>Yet to be supported:</h4>
+
+<ul>
+<li>Growl for Windows</li>
+</ul>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<pre><code>The MIT License (MIT)
+
+Copyright (c) 2014 Ed George
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+</code></pre>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/ed-george">ed-george</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
