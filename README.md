@@ -3,6 +3,8 @@ NotifJ
 
 A Java library to provide an easy method for creating desktop notifications.
 
+Please check the [javadocs](http://ed-george.github.io/NotifJ/apidoc/index.html) to learn more.
+
 ##Examples
 
 **Create a Growl notification in OSX**
