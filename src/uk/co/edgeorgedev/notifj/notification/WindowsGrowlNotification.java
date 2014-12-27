@@ -56,12 +56,11 @@ import com.google.code.jgntp.GntpNotificationInfo;
  */
 public class WindowsGrowlNotification implements Notification {
 
-	private static final long DURATION = 3;
-	private static final TimeUnit TIME_UNIT = TimeUnit.SECONDS;
-	
 	private GntpClient mClient;
 	private GntpApplicationInfo mApplicationInfo;
 	private String application_name;
+	private TimeUnit time_unit;
+	private long duration;
 
 	/**
 	 * Constructs an unregistered named GFW notification application
@@ -73,6 +72,8 @@ public class WindowsGrowlNotification implements Notification {
 	 */
 	public WindowsGrowlNotification(String application_name){
 		this.application_name = application_name;
+		this.time_unit = TimeUnit.SECONDS;
+		this.duration = 3;
 	}
 
 	/**
@@ -105,7 +106,7 @@ public class WindowsGrowlNotification implements Notification {
 	public void show(String title, String message) throws NotificationException {
 		try {
 			GntpNotificationInfo notificationInfo = Gntp.notificationInfo(mApplicationInfo, application_name).build();
-			mClient.notify(Gntp.notification(notificationInfo, title).text(message).build(), DURATION, TIME_UNIT);
+			mClient.notify(Gntp.notification(notificationInfo, title).text(message).build(), duration, time_unit);
 		} catch (Exception e) {
 			throw new NotificationException(e);
 		}
@@ -120,9 +121,36 @@ public class WindowsGrowlNotification implements Notification {
 	public void close() throws NotificationException {
 		try {
 			application_name = null;
-			mClient.shutdown(DURATION, TIME_UNIT);
+			mClient.shutdown(duration, time_unit);
 		} catch (Exception e) {
 			throw new NotificationException(e);
 		}
 	}
+
+	/**
+	 * Set the TimeUnit of the notification's duration
+	 * <p>The default is <tt>TimeUnit.SECONDS</tt>.
+	 * 
+	 * @param time_unit the time unit to apply to the <tt>duration</tt>
+	 * @throws IllegalArgumentException if the time unit is null.
+	 */
+	public void setTimeUnit(TimeUnit time_unit) {
+		if(time_unit == null)
+			throw new IllegalArgumentException("Time Unit cannot be null");
+		this.time_unit = time_unit;
+	}
+
+	/**
+	 * Set the duration time for the notification to be displayed.
+	 * <p>The default is 3 and uses <tt>time_unit</tt> to set the time to display.
+	 * 
+	 * @param duration the length to be applied to the <tt>time_unit</tt>
+	 * @throws IllegalArgumentException if the duration is less than 1
+	 */
+	public void setDuration(long duration) {
+		if(duration < 1)
+			throw new IllegalArgumentException("Duration cannot be less than 1");
+		this.duration = duration;
+	}
+
 }
