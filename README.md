@@ -9,7 +9,7 @@ Please check the [javadocs](http://ed-george.github.io/NotifJ/apidoc/index.html)
 
 **Create and show a simple Growl notification in OSX**
 
-```
+```java
 public void notification(String title, String message) throws NotificationException{
 	OSXGrowlNotification notification = new OSXGrowlNotification("Test App");
 	notification.open();
@@ -18,7 +18,7 @@ public void notification(String title, String message) throws NotificationExcept
 ```
 **Customise the Growl notification in OSX**
 
-```
+```java
 // Show notification until dismissed by user
 notification.sticky();
 
