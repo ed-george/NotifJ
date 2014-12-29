@@ -7,7 +7,7 @@ Please check the [javadocs](http://ed-george.github.io/NotifJ/apidoc/index.html)
 
 ##Examples
 
-**Create a Growl notification in OSX**
+**Create and show a simple Growl notification in OSX**
 
 ```
 public void notification(String title, String message) throws NotificationException{
@@ -15,6 +15,18 @@ public void notification(String title, String message) throws NotificationExcept
 	notification.open();
 	notification.show(title, message);
 }
+```
+**Customise the Growl notification in OSX**
+
+```
+// Show notification until dismissed by user
+notification.sticky();
+
+// Add callback url to notification - opens browser on click
+notification.callbackUrl(new URL("http://example.com"));
+
+// Show notification with new seetings
+notification.show(title, message);
 ```
 
 ##Support
