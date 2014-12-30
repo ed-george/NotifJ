@@ -7,16 +7,16 @@ Please check the [javadocs](http://ed-george.github.io/NotifJ/apidoc/index.html)
 
 ##Examples
 
-**Create and show a simple Growl notification in OSX**
+**Create and show a simple Growl notification**
 
 ```java
 public void notification(String title, String message) throws NotificationException{
-	OSXGrowlNotification notification = new OSXGrowlNotification("Test App");
+	GrowlNotification notification = new GrowlNotification("Test App");
 	notification.open();
 	notification.show(title, message);
 }
 ```
-**Customise the Growl notification in OSX**
+**Customise the Growl notification**
 
 ```java
 // Show notification until dismissed by user
@@ -25,7 +25,7 @@ notification.sticky();
 // Add callback url to notification - opens browser on click
 notification.callbackUrl(new URL("http://example.com"));
 
-// Show notification with new seetings
+// Show notification with new settings
 notification.show(title, message);
 ```
 
@@ -34,8 +34,10 @@ notification.show(title, message);
 + Growl for Mac OSX
   + Successfully tested on Growl 2.1.3 and OS X 10.10.1
   
-####Yet to be supported:
+####Yet to be fully supported:
 + Growl for Windows
+  + Implemented but currently untested
+  + No support for `sticky()` or `callbackURL()`
  
 
 ##License 

@@ -69,7 +69,6 @@ public class WindowsGrowlNotification extends GrowlNotification {
 	 * 
 	 * <p>The registration process occurs within the {@link #open()} method.
 	 * 
-	 * @param application_name name of application to be registered within GFW
 	 * @since 1.2
 	 */
 	public WindowsGrowlNotification(){
