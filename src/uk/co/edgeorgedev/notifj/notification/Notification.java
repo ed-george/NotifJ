@@ -28,6 +28,8 @@
 
 package uk.co.edgeorgedev.notifj.notification;
 
+import java.net.URL;
+
 import uk.co.edgeorgedev.notifj.notification.exception.NotificationException;
 
 /**
@@ -43,6 +45,7 @@ import uk.co.edgeorgedev.notifj.notification.exception.NotificationException;
  *
  * @author  Ed George
  * @see     OSXGrowlNotification
+ * @see     WindowsGrowlNotification
  * @since   1.0
  */
 public interface Notification {
@@ -68,5 +71,14 @@ public interface Notification {
 	 * @throws NotificationException if the cleanup fails.
 	 */
 	public abstract void close() throws NotificationException;
+	
+	//TODO: add java docs since 1.0 to others and 1.2 to this
+	public abstract Notification sticky();
+	public abstract Notification sticky(boolean sticky);
+	public abstract boolean isSticky();
+
+	public abstract Notification callbackUrl(URL callback_url);
+	public abstract Notification removeCallback();
+	public abstract URL getCallbackUrl();	
 
 }

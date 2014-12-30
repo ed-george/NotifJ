@@ -27,6 +27,7 @@
  */
 package uk.co.edgeorgedev.notifj.notification;
 
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.SystemUtils;
@@ -52,7 +53,7 @@ import com.google.code.jgntp.GntpNotificationInfo;
  *
  * @author  Ed George
  * @see     Notification
- * @since   1.1
+ * @since   1.2
  */
 public class WindowsGrowlNotification implements Notification {
 
@@ -151,6 +152,59 @@ public class WindowsGrowlNotification implements Notification {
 		if(duration < 1)
 			throw new IllegalArgumentException("Duration cannot be less than 1");
 		this.duration = duration;
+	}
+
+	/* (non-Javadoc)
+	 * @see uk.co.edgeorgedev.notifj.notification.Notification#sticky()
+	 */
+	@Override
+	public Notification sticky() {
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see uk.co.edgeorgedev.notifj.notification.Notification#sticky(boolean)
+	 */
+	@Override
+	public Notification sticky(boolean sticky) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see uk.co.edgeorgedev.notifj.notification.Notification#isSticky()
+	 */
+	@Override
+	public boolean isSticky() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	/* (non-Javadoc)
+	 * @see uk.co.edgeorgedev.notifj.notification.Notification#callbackUrl(java.net.URL)
+	 */
+	@Override
+	public Notification callbackUrl(URL callback_url) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see uk.co.edgeorgedev.notifj.notification.Notification#removeCallback()
+	 */
+	@Override
+	public Notification removeCallback() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see uk.co.edgeorgedev.notifj.notification.Notification#getCallbackUrl()
+	 */
+	@Override
+	public URL getCallbackUrl() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
