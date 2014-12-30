@@ -25,13 +25,13 @@
  * Created by Ed George on 27 Dec 2014
  *
  */
-package uk.co.edgeorgedev.notifj.notification;
+package uk.co.edgeorgedev.notifj.notification.growl;
 
-import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.SystemUtils;
 
+import uk.co.edgeorgedev.notifj.notification.Notification;
 import uk.co.edgeorgedev.notifj.notification.exception.NotificationException;
 import uk.co.edgeorgedev.notifj.notification.exception.NotificationOperatingSystemException;
 
@@ -52,10 +52,11 @@ import com.google.code.jgntp.GntpNotificationInfo;
  * should it be called on a non-Windows operating system.
  *
  * @author  Ed George
+ * @see     GrowlNotification
  * @see     Notification
  * @since   1.2
  */
-public class WindowsGrowlNotification implements Notification {
+public class WindowsGrowlNotification extends GrowlNotification {
 
 	private GntpClient mClient;
 	private GntpApplicationInfo mApplicationInfo;
@@ -69,12 +70,10 @@ public class WindowsGrowlNotification implements Notification {
 	 * <p>The registration process occurs within the {@link #open()} method.
 	 * 
 	 * @param application_name name of application to be registered within GFW
-	 *
+	 * @since 1.2
 	 */
-	public WindowsGrowlNotification(String application_name){
-		this.application_name = application_name;
-		this.time_unit = TimeUnit.SECONDS;
-		this.duration = 3;
+	public WindowsGrowlNotification(){
+		super();
 	}
 
 	/**
@@ -82,6 +81,7 @@ public class WindowsGrowlNotification implements Notification {
 	 * 
 	 * @throws NotificationException if the client registration fails
 	 * @throws NotificationOperatingSystemException if the system operating system is <i>not</i> Windows
+	 * @since 1.2
 	 */
 	@Override
 	public void open() throws NotificationException {
@@ -102,6 +102,7 @@ public class WindowsGrowlNotification implements Notification {
 	 * @param  title the title of the notification.
 	 * @param  message the message body of the notification. 
 	 * @throws NotificationException if an error occurs trying to display the message
+	 * @since 1.2
 	 */
 	@Override
 	public void show(String title, String message) throws NotificationException {
@@ -117,6 +118,7 @@ public class WindowsGrowlNotification implements Notification {
 	 * Cleans-up object by shutting down GNTP client
 	 * 
 	 * @throws NotificationException if GNTP client shutdown fails
+	 * @since 1.2
 	 */
 	@Override
 	public void close() throws NotificationException {
@@ -134,6 +136,7 @@ public class WindowsGrowlNotification implements Notification {
 	 * 
 	 * @param time_unit the time unit to apply to the <tt>duration</tt>
 	 * @throws IllegalArgumentException if the time unit is null.
+	 * @since 1.2
 	 */
 	public void setTimeUnit(TimeUnit time_unit) {
 		if(time_unit == null)
@@ -147,64 +150,12 @@ public class WindowsGrowlNotification implements Notification {
 	 * 
 	 * @param duration the length to be applied to the <tt>time_unit</tt>
 	 * @throws IllegalArgumentException if the duration is less than 1
+	 * @since 1.2
 	 */
 	public void setDuration(long duration) {
 		if(duration < 1)
 			throw new IllegalArgumentException("Duration cannot be less than 1");
 		this.duration = duration;
-	}
-
-	/* (non-Javadoc)
-	 * @see uk.co.edgeorgedev.notifj.notification.Notification#sticky()
-	 */
-	@Override
-	public Notification sticky() {
-		return this;
-	}
-
-	/* (non-Javadoc)
-	 * @see uk.co.edgeorgedev.notifj.notification.Notification#sticky(boolean)
-	 */
-	@Override
-	public Notification sticky(boolean sticky) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	/* (non-Javadoc)
-	 * @see uk.co.edgeorgedev.notifj.notification.Notification#isSticky()
-	 */
-	@Override
-	public boolean isSticky() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	/* (non-Javadoc)
-	 * @see uk.co.edgeorgedev.notifj.notification.Notification#callbackUrl(java.net.URL)
-	 */
-	@Override
-	public Notification callbackUrl(URL callback_url) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	/* (non-Javadoc)
-	 * @see uk.co.edgeorgedev.notifj.notification.Notification#removeCallback()
-	 */
-	@Override
-	public Notification removeCallback() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	/* (non-Javadoc)
-	 * @see uk.co.edgeorgedev.notifj.notification.Notification#getCallbackUrl()
-	 */
-	@Override
-	public URL getCallbackUrl() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }
