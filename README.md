@@ -10,10 +10,13 @@ Please check the [javadocs](http://ed-george.github.io/NotifJ/apidoc/index.html)
 **Create and show a simple Growl notification**
 
 ```java
-public void notification(String title, String message) throws NotificationException{
-	GrowlNotification notification = new GrowlNotification("Test App");
-	notification.open();
-	notification.show(title, message);
+public void notification(String title, String message){
+	try(GrowlNotification notification = new GrowlNotification("Test App")){
+	    notification.open();
+	    notification.show(title, message);
+	}catch(NotificationException ne){
+	    ne.printStackTrace();
+	}
 }
 ```
 **Customise the Growl notification**
