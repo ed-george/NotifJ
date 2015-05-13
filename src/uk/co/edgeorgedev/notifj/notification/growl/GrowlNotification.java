@@ -22,7 +22,9 @@ import uk.co.edgeorgedev.notifj.notification.exception.NotificationOperatingSyst
  * if the creation of a Growl Notification fails.
  * 
  * <p>It should also be noted that <tt>open()</tt> will throw a <tt>NotificationOperatingSystemException</tt>
- * should it be called on a non-OSX operating system.
+ * should it be called on an unsupported operating system.
+ * 
+ * <p> GrowlNotification can be automatically closed through the use of a 'try-with-resources' block
  *
  * @author  Ed George
  * @see     Notification
@@ -30,7 +32,7 @@ import uk.co.edgeorgedev.notifj.notification.exception.NotificationOperatingSyst
  * @see     OSXGrowlNotification
  * @since   1.2
  */
-public class GrowlNotification implements Notification{
+public class GrowlNotification implements Notification, AutoCloseable{
 
 	private GrowlNotification notification;
 	protected String application_name;
