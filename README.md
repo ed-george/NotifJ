@@ -34,6 +34,7 @@ notification.show(title, message);
 + Growl for Mac OSX
   + Successfully tested on Growl 2.1.3 and OS X 10.10.1
   + **Required:** OSX 10.11.2 El Capitan - [Download legacy Java](https://support.apple.com/kb/DL1572?locale=en_US)
+
 ####Yet to be fully supported:
 + Growl for Windows
   + Implemented but currently untested
